@@ -4,5 +4,6 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
         <property name="context-root" value="MessageBoard"/>
         <property name="java-output-path" value="/MessageBoard/WebRoot/WEB-INF/classes"/>
+        <property name="me-struts-base-pkg" value="com.vayneLove.struts"/>
     </wb-module>
 </project-modules>
