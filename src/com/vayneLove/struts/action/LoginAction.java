@@ -6,10 +6,14 @@ package com.vayneLove.struts.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+
+import com.vayneLove.domain.Users;
+import com.vayneLove.service.userValidateservice;
 import com.vayneLove.struts.form.UserForm;
 
 /** 
@@ -34,13 +38,19 @@ public class LoginAction extends Action {
 	 */
 	public ActionForward execute(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response) {
-		UserForm userForm = (UserForm) form;// TODO Auto-generated method stub
+		UserForm userForm = (UserForm) form;
 		
-		if (userForm.getPassword().equals("123")) {
+		userValidateservice valiUser = new userValidateservice();
+		Users user = new Users();
+		user.setId((long)1);
+		user.setName(userForm.getUsername());
+		user.setPassword(userForm.getPassword());
+		
+		if (valiUser.checkLoginer(user)) {
 			
 			return mapping.findForward("ok");
 		}
 		
-		return null;
+		return mapping.findForward("err");
 	}
 }
