@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  	<form action="loginsuccess">
+  	<form action="/MessageBoard/login.do" method="post">
   	U:<input type="text" name= "username"/>
   	P:<input type="password" name="password"/>
   	<input type="submit" value="login"/>

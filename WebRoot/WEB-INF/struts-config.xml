@@ -20,6 +20,7 @@
       validate="false"
       cancellable="true" >
       <forward name="err" path="/login.jsp" />
+      <forward name="ok" path="/messageShow.jsp" />
     </action>
 
 

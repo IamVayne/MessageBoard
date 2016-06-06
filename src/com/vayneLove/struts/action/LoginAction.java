@@ -35,6 +35,12 @@ public class LoginAction extends Action {
 	public ActionForward execute(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response) {
 		UserForm userForm = (UserForm) form;// TODO Auto-generated method stub
+		
+		if (userForm.getPassword().equals("123")) {
+			
+			return mapping.findForward("ok");
+		}
+		
 		return null;
 	}
 }
