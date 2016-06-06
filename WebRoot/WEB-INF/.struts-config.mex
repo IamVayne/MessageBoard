@@ -4,10 +4,24 @@
   <StrutsActivity path="/login.jsp" location="30,105" dimension="150,100" />
   <StrutsActivity path="/messageShow.jsp" location="780,105" dimension="150,100" />
   <StrutsActivity path="/wantSend.jsp" location="849,313" dimension="150,100" />
+  <StrutsActivity path="/saveMessage.do" location="405,315" dimension="322,104" />
+  <StrutsActivity path="/addMessOK.jsp" location="135,315" dimension="150,100" />
+  <StrutsTransition id="/saveMessage.do,addOk,/addMessOK.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="405,365" />
+      <AbsolutePoint location="285,365" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
   <StrutsTransition id="/login.do,err,/login.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="315,155" />
       <AbsolutePoint location="180,155" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/wantSend.jsp,null,/saveMessage.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="849,367" />
+      <AbsolutePoint location="727,367" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/login.jsp,null,/login.do,2" routingType="0">

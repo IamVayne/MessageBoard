@@ -4,6 +4,7 @@
 <struts-config>
   <form-beans >
     <form-bean name="userForm" type="com.vayneLove.struts.form.UserForm" />
+    <form-bean name="messageForm" type="com.vayneLove.struts.form.MessageForm" />
 
   </form-beans>
 
@@ -22,6 +23,18 @@
       <forward name="err" path="/login.jsp" />
       <forward name="ok" path="/messageShow.jsp" />
     </action>
+    <action
+      attribute="messageForm"
+      input="/wantSend.jsp"
+      name="messageForm"
+      path="/saveMessage"
+      scope="request"
+      type="com.vayneLove.struts.action.SaveMessageAction"
+      validate="false"
+      cancellable="true" >
+      <forward name="addOk" path="/addMessOK.jsp" />
+    </action>
+
 
 
   </action-mappings>
