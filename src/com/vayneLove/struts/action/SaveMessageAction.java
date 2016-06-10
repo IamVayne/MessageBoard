@@ -17,6 +17,7 @@ import org.apache.struts.action.ActionMapping;
 import com.vayneLove.domain.Message;
 import com.vayneLove.service.AddMessageservice;
 import com.vayneLove.struts.form.MessageForm;
+import com.vayneLove.utils.DealDate;
 
 /** 
  * MyEclipse Struts
@@ -42,20 +43,14 @@ public class SaveMessageAction extends Action {
 			HttpServletRequest request, HttpServletResponse response) {
 		MessageForm messageForm = (MessageForm) form;
 		Message message = new Message();
-		message.setId((long)1);
 		message.setSender(messageForm.getSender());
 		message.setContent(messageForm.getContent());
 		message.setGetter(messageForm.getGetter());
-		message.setSendTime("2016-6-6");
+		message.setSendTime(DealDate.dateFomat(new Date()));
 		message.setAttachment("fujian");
-		System.out.println(message.getSendTime().toString());
-		System.out.println(message.getSender().toString());
-		System.out.println(message.getGetter().toString());
-		System.out.println(message.getContent().toString());
-		System.out.println(message.getId().toString());
-		System.out.println(message.getAttachment().toString());
 		AddMessageservice addMessageservice = new AddMessageservice();
 		addMessageservice.sendMessage(message);
+		request.getSession().setAttribute("testSession", message.getContent());
 		return mapping.findForward("addOk");
 	}
 }
