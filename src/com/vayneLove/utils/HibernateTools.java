@@ -38,7 +38,7 @@ public class HibernateTools {
 		Transaction transaction=null;
 		List list = null;
 		try {
-			session=HibernateTools.getcurrentSession();
+			session=HibernateTools.getSession();
 			transaction=session.beginTransaction();
 			list = session.createQuery(hql).list();
 			transaction.commit();

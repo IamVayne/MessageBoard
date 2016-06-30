@@ -4,8 +4,6 @@
  */
 package com.vayneLove.struts.action;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -14,20 +12,18 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import com.vayneLove.domain.Message;
 import com.vayneLove.domain.Users;
-import com.vayneLove.service.GetMessListService;
-import com.vayneLove.service.userValidateservice;
+import com.vayneLove.service.RegisterUserService;
 import com.vayneLove.struts.form.UserForm;
 
 /** 
  * MyEclipse Struts
- * Creation date: 06-05-2016
+ * Creation date: 06-30-2016
  * 
  * XDoclet definition:
- * @struts.action path="/login" name="userForm" scope="request"
+ * @struts.action path="/register" name="userForm" scope="request"
  */
-public class LoginAction extends Action {
+public class RegisterAction extends Action {
 	/*
 	 * Generated Methods
 	 */
@@ -42,25 +38,17 @@ public class LoginAction extends Action {
 	 */
 	public ActionForward execute(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response) {
-		UserForm userForm = (UserForm) form;
+		UserForm userForm = (UserForm) form;// TODO Auto-generated method stub
 		
-		userValidateservice valiUser = new userValidateservice();
-		Users user = new Users();
-		user.setId((long)1);
-		user.setName(userForm.getUsername());
-		user.setPassword(userForm.getPassword());
+		Users newuser = new Users();
+		newuser.setName(userForm.getUsername());
+		newuser.setPassword(userForm.getPassword());
 		
-		if (valiUser.checkLoginer(user)) {
-			
-			GetMessListService getlistService = new GetMessListService();
-			
-			List<Message> list = getlistService.getmessagesList();
-			
-			request.setAttribute("messlist", list);
-			
-			return mapping.findForward("ok");
-		}
+		System.out.println(newuser.getName()+"  "+newuser.getPassword());
 		
-		return mapping.findForward("err");
+		RegisterUserService registerUserService = new RegisterUserService();
+		registerUserService.register(newuser);
+		
+		return mapping.findForward("registerOk");
 	}
 }

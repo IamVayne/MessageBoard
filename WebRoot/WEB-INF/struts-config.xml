@@ -34,6 +34,18 @@
       cancellable="true" >
       <forward name="addOk" path="/addMessOK.jsp" />
     </action>
+    <action
+      attribute="userForm"
+      input="/Register.jsp"
+      name="userForm"
+      path="/register"
+      scope="request"
+      type="com.vayneLove.struts.action.RegisterAction"
+      validate="false"
+      cancellable="true" >
+      <forward name="registerOk" path="/RegOk.jsp" />
+    </action>
+
 
 
 

@@ -1,5 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -10,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'messageShow.jsp' starting page</title>
+    <title>My JSP 'Register.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -24,13 +23,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  	<a href="/MessageBoard/wantSend.jsp">I want to send message</a><br/>
-  	<table border="1">
-  	<tr><td>sender</td><td>message</td><td>getter</td><td>when?</td></tr>
-  	<c:forEach items="${messlist }" var="message">
-  	<tr><td>${message.sender }</td><td>${message.content }</td><td>${message.getter }</td><td>${message.sendTime }</td></tr>
-  	
-  	</c:forEach>
-  	</table>
+    <form action="/MessageBoard/register.do" method="post">
+    	name:<input type = "text" name="username"/><br>
+    	password:<input type="text" name="password"/><br>
+    	<input type="submit" value="注册"/>
+    
+    </form>
   </body>
 </html>
