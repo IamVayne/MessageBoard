@@ -1,55 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <FlowViewLayout Version="1.2">
   <StrutsActivity path="/login.do" location="435,105" dimension="274,104" />
-  <StrutsActivity path="/saveMessage.do" location="405,315" dimension="322,104" />
-  <StrutsActivity path="/login.jsp" location="180,105" dimension="150,100" />
+  <StrutsActivity path="/saveMessage.do" location="405,225" dimension="322,104" />
+  <StrutsActivity path="/register.do" location="465,360" dimension="150,100" />
+  <StrutsActivity path="/addStudent.do" location="495,525" dimension="310,104" />
+  <StrutsActivity path="/changeStu_score.do" location="495,660" dimension="341,104" />
+  <StrutsActivity path="/findstua.do" location="495,810" dimension="290,104" />
+  <StrutsActivity path="/deleteStudent.do" location="495,930" dimension="323,104" />
+  <StrutsActivity path="/login.jsp" location="225,105" dimension="150,100" />
   <StrutsActivity path="/messageShow.jsp" location="780,105" dimension="150,100" />
-  <StrutsActivity path="/addMessOK.jsp" location="135,315" dimension="150,100" />
-  <StrutsActivity path="/wantSend.jsp" location="849,313" dimension="150,100" />
+  <StrutsActivity path="/addMessOK.jsp" location="135,225" dimension="150,100" />
+  <StrutsActivity path="/wantSend.jsp" location="855,225" dimension="150,100" />
+  <StrutsActivity path="/RegOk.jsp" location="180,360" dimension="150,100" />
+  <StrutsActivity path="/Register.jsp" location="840,360" dimension="150,100" />
+  <StrutsActivity path="/addStu.jsp" location="195,525" dimension="150,100" />
+  <StrutsActivity path="/noexist.jsp" location="1230,750" dimension="150,100" />
+  <StrutsActivity path="/changeStu.jsp" location="195,660" dimension="150,100" />
+  <StrutsActivity path="/exist.jsp" location="945,765" dimension="150,100" />
+  <StrutsActivity path="/findStu.jsp" location="195,810" dimension="150,100" />
+  <StrutsActivity path="/deleteStu.jsp" location="195,930" dimension="150,100" />
   <StrutsActivity path="/MyIndex.jsp" location="15,105" dimension="150,100" />
-  <StrutsActivity path="/Register.jsp" location="840,495" dimension="150,100" />
-  <StrutsActivity path="/register.do" location="465,495" dimension="150,100" />
-  <StrutsActivity path="/RegOk.jsp" location="180,495" dimension="150,100" />
-  <StrutsTransition id="/saveMessage.do,addOk,/addMessOK.jsp,1" routingType="0">
+  <StrutsActivity path="/deleteok.jsp" location="985,957" dimension="150,100" />
+  <StrutsTransition id="/deleteStu.jsp,null,/deleteStudent.do,2" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="405,365" />
-      <AbsolutePoint location="285,365" />
+      <AbsolutePoint location="345,982" />
+      <AbsolutePoint location="495,982" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/register.do,registerOk,/RegOk.jsp,1" routingType="0">
+  <StrutsTransition id="/findstua.do,exist,/exist.jsp,1" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="465,545" />
-      <AbsolutePoint location="330,545" />
+      <AbsolutePoint location="785,825" />
+      <AbsolutePoint location="945,825" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/deleteStudent.do,deleteok,/deleteok.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="818,1007" />
+      <AbsolutePoint location="985,1007" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/login.do,err,/login.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="435,155" />
-      <AbsolutePoint location="330,155" />
+      <AbsolutePoint location="375,155" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/register.do,registerOk,/RegOk.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="465,410" />
+      <AbsolutePoint location="330,410" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/findStu.jsp,null,/findstua.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="345,862" />
+      <AbsolutePoint location="495,862" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/findstua.do,noexist,/noexist.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="785,880" />
+      <AbsolutePoint location="1305,880" />
+      <AbsolutePoint location="1305,850" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/Register.jsp,null,/register.do,2" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="840,545" />
-      <AbsolutePoint location="615,545" />
+      <AbsolutePoint location="840,410" />
+      <AbsolutePoint location="615,410" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/wantSend.jsp,null,/saveMessage.do,2" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="849,367" />
-      <AbsolutePoint location="727,367" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
-  <StrutsTransition id="/login.jsp,null,/login.do,2" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="330,185" />
-      <AbsolutePoint location="435,185" />
+      <AbsolutePoint location="855,277" />
+      <AbsolutePoint location="727,277" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/login.do,ok,/messageShow.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="709,155" />
       <AbsolutePoint location="780,155" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/changeStu_score.do,noexist,/noexist.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="836,712" />
+      <AbsolutePoint location="1305,712" />
+      <AbsolutePoint location="1305,750" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/saveMessage.do,addOk,/addMessOK.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="405,275" />
+      <AbsolutePoint location="285,275" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/changeStu_score.do,exist,/messageShow.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="821,660" />
+      <AbsolutePoint location="821,205" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/changeStu.jsp,null,/changeStu_score.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="345,712" />
+      <AbsolutePoint location="495,712" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/addStudent.do,addstuOK,/addStu.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="495,547" />
+      <AbsolutePoint location="345,547" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/login.jsp,null,/login.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="375,185" />
+      <AbsolutePoint location="435,185" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/addStu.jsp,null,/addStudent.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="345,577" />
+      <AbsolutePoint location="495,577" />
     </AutomaticBendpoints>
   </StrutsTransition>
 </FlowViewLayout>

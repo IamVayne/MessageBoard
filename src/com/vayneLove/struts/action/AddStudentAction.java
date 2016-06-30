@@ -12,18 +12,18 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import com.vayneLove.domain.Users;
-import com.vayneLove.service.RegisterUserService;
-import com.vayneLove.struts.form.UserForm;
+import com.vayneLove.domain.Students;
+import com.vayneLove.service.StudentOperation;
+import com.vayneLove.struts.form.StudentsForm;
 
 /** 
  * MyEclipse Struts
  * Creation date: 06-30-2016
  * 
  * XDoclet definition:
- * @struts.action path="/register" name="userForm" scope="request"
+ * @struts.action path="/addStudent" name="studentsForm" scope="request"
  */
-public class RegisterAction extends Action {
+public class AddStudentAction extends Action {
 	/*
 	 * Generated Methods
 	 */
@@ -38,16 +38,17 @@ public class RegisterAction extends Action {
 	 */
 	public ActionForward execute(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response) {
-		UserForm userForm = (UserForm) form;// TODO Auto-generated method stub
+		StudentsForm studentsForm = (StudentsForm) form;// TODO Auto-generated method stub
 		
-		Users newuser = new Users();
-		newuser.setName(userForm.getUsername());
-		newuser.setPassword(userForm.getPassword());
+		Students student = new Students();
 		
+		student.setStuid(studentsForm.getStuid());
+		student.setStuname(studentsForm.getStuname());
+		student.setScore(studentsForm.getScore());
 		
-		RegisterUserService registerUserService = new RegisterUserService();
-		registerUserService.register(newuser);
+		StudentOperation operation = new StudentOperation();
+		operation.addStudent(student);
 		
-		return mapping.findForward("registerOk");
+		return mapping.findForward("addstuOK");
 	}
 }

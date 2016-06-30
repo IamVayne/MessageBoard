@@ -32,5 +32,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	
   	</c:forEach>
   	</table>
+  	
+  	学生操作：
+  	<a href="/MessageBoard/addStu.jsp">添加</a><br>
+  	<a href="/MessageBoard/deleteStu.jsp">删除</a><br>
+  	<a href="/MessageBoard/changeStu.jsp">修改</a><br>
+  	<a href="/MessageBoard/findStu.jsp">查询</a><br>
   </body>
 </html>

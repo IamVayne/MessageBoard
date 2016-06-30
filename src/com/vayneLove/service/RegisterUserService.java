@@ -19,10 +19,8 @@ public class RegisterUserService {
 			transaction = session.beginTransaction();
 			
 			session.save(users);
-			System.out.println("在session.save之后");
 			
 			transaction.commit();
-			System.out.println("commit之后");
 		} catch (Exception e) {
 			if(transaction!=null)
 			{

@@ -12,18 +12,17 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import com.vayneLove.domain.Users;
-import com.vayneLove.service.RegisterUserService;
-import com.vayneLove.struts.form.UserForm;
+import com.vayneLove.service.StudentOperation;
+import com.vayneLove.struts.form.StudentsForm;
 
 /** 
  * MyEclipse Struts
  * Creation date: 06-30-2016
  * 
  * XDoclet definition:
- * @struts.action path="/register" name="userForm" scope="request"
+ * @struts.action path="/changeStu_score" name="changeScoreForm" scope="request"
  */
-public class RegisterAction extends Action {
+public class ChangeStu_scoreAction extends Action {
 	/*
 	 * Generated Methods
 	 */
@@ -38,16 +37,17 @@ public class RegisterAction extends Action {
 	 */
 	public ActionForward execute(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response) {
-		UserForm userForm = (UserForm) form;// TODO Auto-generated method stub
-		
-		Users newuser = new Users();
-		newuser.setName(userForm.getUsername());
-		newuser.setPassword(userForm.getPassword());
+		StudentsForm studentsForm = (StudentsForm) form;// TODO Auto-generated method stub
 		
 		
-		RegisterUserService registerUserService = new RegisterUserService();
-		registerUserService.register(newuser);
+		StudentOperation op = new StudentOperation();
 		
-		return mapping.findForward("registerOk");
+		if (op.findList(studentsForm.getStuid())) {
+			op.changeScore(studentsForm.getStuid(), studentsForm.getScore());
+			return mapping.findForward("exist");
+		}else {
+			return mapping.findForward("noexist");
+		}
+		
 	}
 }

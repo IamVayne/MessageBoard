@@ -12,18 +12,17 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import com.vayneLove.domain.Users;
-import com.vayneLove.service.RegisterUserService;
-import com.vayneLove.struts.form.UserForm;
+import com.vayneLove.service.StudentOperation;
+import com.vayneLove.struts.form.StudentsForm;
 
 /** 
  * MyEclipse Struts
  * Creation date: 06-30-2016
  * 
  * XDoclet definition:
- * @struts.action path="/register" name="userForm" scope="request"
+ * @struts.action path="/deleteStudent" name="studentsForm" scope="request"
  */
-public class RegisterAction extends Action {
+public class DeleteStudentAction extends Action {
 	/*
 	 * Generated Methods
 	 */
@@ -38,16 +37,12 @@ public class RegisterAction extends Action {
 	 */
 	public ActionForward execute(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response) {
-		UserForm userForm = (UserForm) form;// TODO Auto-generated method stub
+		StudentsForm studentsForm = (StudentsForm) form;// TODO Auto-generated method stub
 		
-		Users newuser = new Users();
-		newuser.setName(userForm.getUsername());
-		newuser.setPassword(userForm.getPassword());
+		StudentOperation operation = new StudentOperation();
 		
+		operation.deleteOneStudent(studentsForm.getStuid());
 		
-		RegisterUserService registerUserService = new RegisterUserService();
-		registerUserService.register(newuser);
-		
-		return mapping.findForward("registerOk");
+		return mapping.findForward("deleteok");
 	}
 }

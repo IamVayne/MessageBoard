@@ -5,6 +5,8 @@
   <form-beans >
     <form-bean name="userForm" type="com.vayneLove.struts.form.UserForm" />
     <form-bean name="messageForm" type="com.vayneLove.struts.form.MessageForm" />
+    <form-bean name="studentsForm" type="com.vayneLove.struts.form.StudentsForm" />
+    <form-bean name="changeScoreForm" type="com.vayneLove.struts.form.ChangeScoreForm" />
 
   </form-beans>
 
@@ -45,6 +47,57 @@
       cancellable="true" >
       <forward name="registerOk" path="/RegOk.jsp" />
     </action>
+    <action
+      attribute="studentsForm"
+      input="/addStu.jsp"
+      name="studentsForm"
+      path="/addStudent"
+      scope="request"
+      type="com.vayneLove.struts.action.AddStudentAction"
+      validate="false"
+      cancellable="true" >
+      <forward name="addstuOK" path="/addStu.jsp" />
+    </action>
+    <action
+      attribute="changeScoreForm"
+      input="/changeStu.jsp"
+      name="studentsForm"
+      path="/changeStu_score"
+      scope="request"
+      type="com.vayneLove.struts.action.ChangeStu_scoreAction"
+      validate="false"
+      cancellable="true" >
+      
+      <forward name="noexist" path="/noexist.jsp" />
+      <forward name="exist" path="/messageShow.jsp" />
+    </action>
+
+    <action
+      attribute="studentsForm"
+      input="/findStu.jsp"
+      name="studentsForm"
+      path="/findstua"
+      scope="request"
+      type="com.vayneLove.struts.action.FindstuaAction"
+      validate="false"
+      cancellable="true" >
+      <forward name="exist" path="/exist.jsp" />
+      <forward name="noexist" path="/noexist.jsp" />
+    </action>
+    <action
+      attribute="studentsForm"
+      input="/deleteStu.jsp"
+      name="studentsForm"
+      path="/deleteStudent"
+      scope="request"
+      type="com.vayneLove.struts.action.DeleteStudentAction"
+      validate="false"
+      cancellable="true" >
+      <forward name="deleteok" path="/deleteok.jsp" />
+    </action>
+
+
+
 
 
 
